@@ -2,7 +2,7 @@
 
 Site de uma lanchonete fictícia, feito para o meu portfólio. O cliente navega pelo cardápio, monta o pedido num carrinho e finaliza pelo WhatsApp, com a mensagem do pedido já escrita.
 
-**Ver o site:** https://SEU-USUARIO.github.io/rei-dos-hamburgueres/
+**Ver o site:** https://eduy678.github.io/Rei-dos-Hambugueres/
 
 <!-- Troque SEU-USUARIO pelo seu usuário do GitHub, depois de ligar o GitHub Pages -->
 
