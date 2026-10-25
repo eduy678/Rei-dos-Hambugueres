@@ -1,0 +1,189 @@
+/* ==========================================================
+   cardapio.css — carregue DEPOIS do style.css
+   ========================================================== */
+
+.cardapio {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 16px 56px;
+}
+
+.cardapio__titulo {
+    margin-bottom: 8px;
+    color: var(--amarelo);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    text-align: center;
+}
+
+/* ---------- Categorias ---------- */
+.categoria {
+    margin-top: 40px;
+}
+
+.categoria__titulo {
+    margin: 0 0 16px 8px;
+    color: var(--amarelo-titulo);
+    font-size: 1.8rem;
+}
+
+/* ---------- Carrossel ---------- */
+.carrossel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;  /* minmax(0, ...) evita estourar a tela */
+    align-items: center;
+    gap: 12px;
+}
+
+.carrossel__trilho {
+    display: flex;
+    gap: 16px;
+    padding: 4px 2px 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;            /* esconde a barra de rolagem */
+}
+
+.carrossel__trilho::-webkit-scrollbar {
+    display: none;
+}
+
+.carrossel__seta {
+    width: 48px;
+    height: 48px;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--amarelo);
+    color: var(--marrom-escuro);
+    font-size: 1.9rem;
+    line-height: 1;
+    box-shadow: var(--sombra);
+    cursor: pointer;
+    transition: transform 0.15s, filter 0.15s;
+}
+
+.carrossel__seta:hover {
+    filter: brightness(1.08);
+    transform: scale(1.06);
+}
+
+.carrossel__seta:focus-visible {
+    outline: 3px solid var(--branco);
+    outline-offset: 3px;
+}
+
+/* ---------- Cards de produto (verticais) ---------- */
+.produto {
+    flex: 0 0 230px;                  /* mesmo tamanho em todos os cards */
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 16px 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.produto--bebidas {
+    background-color: var(--card-bebidas);
+}
+
+.produto--salgados {
+    background-color: var(--card-salgados);
+}
+
+.produto--bolos {
+    background-color: var(--card-bolos);
+}
+
+.produto--destaque {
+    background-color: var(--card-hamburgueres);
+}
+
+.produto__imagem {
+    width: 100%;
+    max-width: 180px;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.produto__nome {
+    font-size: 1.3rem;
+}
+
+.produto__preco {
+    margin-top: auto;                 /* preço e botão sempre alinhados embaixo */
+    color: var(--amarelo-titulo);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* ---------- Cards de hambúrguer (horizontais) ---------- */
+.produto--hamburguer {
+    flex: 0 0 min(420px, 90%);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background-color: #c8701f;
+    text-align: left;
+}
+
+.produto__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+}
+
+.produto__descricao {
+    font-size: 0.85rem;
+}
+
+.produto--hamburguer .produto__imagem {
+    flex: none;
+    width: 130px;
+    max-width: none;
+}
+
+.produto--hamburguer .produto__preco {
+    margin-top: 0;
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 800px) {
+    .categoria__titulo {
+        font-size: 1.5rem;
+    }
+
+    .carrossel {
+        gap: 6px;
+    }
+
+    .carrossel__seta {
+        width: 36px;
+        height: 36px;
+        font-size: 1.4rem;
+    }
+
+    .produto {
+        flex-basis: min(230px, 100%);
+    }
+
+    .produto--hamburguer {
+        flex-basis: 100%;
+        flex-direction: column-reverse;   /* foto em cima, texto embaixo */
+        text-align: center;
+    }
+
+    .produto--hamburguer .produto__info {
+        align-items: center;
+    }
+
+    .produto--hamburguer .produto__imagem {
+        width: 140px;
+    }
+}

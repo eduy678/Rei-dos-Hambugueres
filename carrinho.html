@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Rei dos Hambúrgueres</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carrinho.css">
+    <link rel="icon" href="imagens-geral/icons8-shopping-cart.svg" type="image/svg+xml">
+
+    <!-- produtos.js precisa vir ANTES do carrinho.js (defer mantém a ordem) -->
+    <script src="javascript/produtos.js" defer></script>
+    <script src="javascript/carrinho.js" defer></script>
+    <script src="javascript/menu.js" defer></script>
+</head>
+
+<body>
+    <header class="menu">
+        <a class="menu__marca" href="index.html">🍔 Rei dos Hambúrgueres</a>
+
+        <nav class="menu__nav" id="menu-nav" aria-label="Menu principal">
+            <a href="index.html">Início</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="index.html#localizacao">Contatos</a>
+        </nav>
+
+        <a class="menu__carrinho" href="carrinho.html" aria-label="Ver carrinho">
+            <img src="imagens-geral/icons8-shopping-cart.svg" alt="" width="24" height="24">
+            <span class="menu__contador" id="contador-carrinho" hidden>0</span>
+        </a>
+
+        <button class="menu__toggle" id="botao-menu" type="button" aria-label="Abrir menu" aria-expanded="false"
+            aria-controls="menu-nav">☰</button>
+    </header>
+
+    <main class="carrinho">
+
+        <!-- Estado 1: carrinho com itens (o JavaScript desenha as linhas em #lista-carrinho) -->
+        <section class="carrinho__itens" id="carrinho-itens">
+            <h1 class="carrinho__titulo">Carrinho</h1>
+            <h2 class="carrinho__subtitulo">Pedidos</h2>
+
+            <ul class="carrinho__lista" id="lista-carrinho"></ul>
+
+            <div class="carrinho__total">
+                <span class="carrinho__total-texto">Total</span>
+                <span class="carrinho__total-valor" id="total-carrinho">R$0</span>
+            </div>
+
+            <div class="carrinho__acoes">
+                <a class="btn" id="botao-whatsapp" href="#" target="_blank" rel="noopener">Finalizar no WhatsApp</a>
+                <a class="btn btn--contorno" href="cardapio.html">Voltar ao Cardápio</a>
+            </div>
+        </section>
+
+        <!-- Estado 2: carrinho vazio (o JavaScript alterna o atributo hidden entre os dois estados) -->
+        <section class="carrinho__vazio" id="carrinho-vazio" hidden>
+            <h1 class="carrinho__titulo">Seu carrinho está vazio</h1>
+            <img class="carrinho__icone" src="imagens-geral/icons8-shopping-cart.svg" alt="" width="120" height="120">
+
+            <div class="carrinho__acoes">
+                <a class="btn" href="#" aria-disabled="true" tabindex="-1">Finalizar no WhatsApp</a>
+                <a class="btn" href="cardapio.html">Voltar ao Cardápio</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape__marca">
+            <p class="rodape__nome">🍔 Rei dos Hambúrgueres</p>
+            <p class="rodape__slogan">Sabor que vira rei da sua noite</p>
+        </div>
+
+        <nav class="rodape__coluna" aria-label="Navegação do rodapé">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="index.html#localizacao">Contatos</a></li>
+            </ul>
+        </nav>
+
+        <div class="rodape__coluna">
+            <h4>Redes Sociais</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">WhatsApp</a></li>
+            </ul>
+        </div>
+
+        <p class="rodape__copy">© 2026 Rei dos Hambúrgueres. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>

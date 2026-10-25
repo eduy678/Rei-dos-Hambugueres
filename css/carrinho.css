@@ -1,0 +1,206 @@
+/* ==========================================================
+   carrinho.css — carregue DEPOIS do style.css
+   ========================================================== */
+
+.carrinho {
+    max-width: 900px;
+    min-height: 70vh;
+    margin: 0 auto;
+    padding: 32px 20px 56px;
+}
+
+/* O atributo hidden precisa vencer o display definido abaixo */
+.carrinho__itens[hidden],
+.carrinho__vazio[hidden] {
+    display: none;
+}
+
+.carrinho__titulo {
+    margin-bottom: 16px;
+    color: var(--amarelo);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    text-align: center;
+}
+
+.carrinho__subtitulo {
+    margin-bottom: 8px;
+    color: var(--amarelo-titulo);
+    font-size: 1.8rem;
+}
+
+/* ---------- Lista de itens ---------- */
+.carrinho__lista {
+    border-top: 2px solid #ffd98a;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto auto;   /* foto | nome | preço | controles */
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 2px solid #ffd98a;
+}
+
+.item__foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.item__nome {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.item__preco {
+    color: var(--amarelo-titulo);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.item__controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item__botao {
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 8px;
+    background-color: var(--amarelo);
+    color: var(--marrom-escuro);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.item__botao:hover {
+    filter: brightness(1.08);
+}
+
+.item__quantidade {
+    min-width: 24px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.item__remover {
+    display: flex;
+    padding: 4px;
+    border: 0;
+    background: none;
+    color: #ff3b1d;
+    cursor: pointer;
+}
+
+.item__remover:hover {
+    color: #ff6a50;
+}
+
+.item__botao:focus-visible,
+.item__remover:focus-visible {
+    outline: 3px solid var(--branco);
+    outline-offset: 2px;
+}
+
+/* ---------- Total ---------- */
+.carrinho__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 2px solid #ffd98a;
+}
+
+.carrinho__total-texto {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.carrinho__total-valor {
+    color: var(--amarelo-titulo);
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+/* ---------- Botões ---------- */
+.carrinho__acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.carrinho__acoes .btn {
+    width: min(420px, 100%);
+    padding: 20px;
+}
+
+/* ---------- Carrinho vazio ---------- */
+.carrinho__vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+    text-align: center;
+}
+
+.carrinho__icone {
+    margin: 12px 0 8px;
+}
+
+.btn[aria-disabled="true"] {
+    pointer-events: none;   /* link desativado não responde ao clique */
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 800px) {
+    .carrinho {
+        padding: 24px 16px 48px;
+    }
+
+    .item {
+        /* linha 1: foto, nome, preço | linha 2: controles */
+        grid-template-columns: 64px 1fr auto;
+        grid-template-areas:
+            "foto nome preco"
+            "controles controles controles";
+        gap: 10px 12px;
+    }
+
+    .item__foto {
+        grid-area: foto;
+        width: 64px;
+        height: 64px;
+    }
+
+    .item__nome {
+        grid-area: nome;
+        font-size: 1.15rem;
+    }
+
+    .item__preco {
+        grid-area: preco;
+        font-size: 1.15rem;
+    }
+
+    .item__controles {
+        grid-area: controles;
+        justify-content: flex-end;
+    }
+
+    .carrinho__total-texto {
+        font-size: 1.4rem;
+    }
+
+    .carrinho__total-valor {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,537 @@
+/* ==========================================================
+   style.css — estilos compartilhados + página inicial
+   ========================================================== */
+
+/* ---------- Variáveis ---------- */
+:root {
+    --marrom-escuro: #2b130c;
+    --marrom-medio: #6b4226;
+    --vinho-localizacao: #7a4242;
+    --amarelo: #ffdd57;
+    --amarelo-titulo: #f8d210;
+    --branco: #ffffff;
+    --cinza-desativado: #383838;
+
+    --card-bebidas: #3d0000;
+    --card-hamburgueres: #6e2f1c;
+    --card-salgados: #a0501a;
+    --card-bolos: #a07f6e;
+
+    --fonte: "Open Sans", Arial, sans-serif;
+    --sombra: 0 4px 10px rgba(0, 0, 0, 0.35);
+    --altura-menu: 64px;
+}
+
+/* ---------- Reset básico ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--altura-menu);
+}
+
+body {
+    font-family: var(--fonte);
+    background-color: var(--marrom-medio);
+    color: var(--branco);
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- Botões ---------- */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 3px solid var(--amarelo);
+    border-radius: 8px;
+    background-color: var(--amarelo);
+    color: var(--marrom-escuro);
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: var(--sombra);
+    cursor: pointer;
+    transition: transform 0.15s, filter 0.15s;
+}
+
+.btn:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--branco);
+    outline-offset: 3px;
+}
+
+.btn--pequeno {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+}
+
+.btn--contorno {
+    background-color: transparent;
+    color: var(--amarelo);
+    box-shadow: none;
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+    background-color: var(--cinza-desativado);
+    border-color: var(--cinza-desativado);
+    color: #777;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+    filter: none;
+}
+
+/* ---------- Menu ---------- */
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: var(--altura-menu);
+    padding: 0 24px;
+    background-color: var(--marrom-escuro);
+}
+
+.menu__marca {
+    margin-right: auto;               /* empurra o resto para a direita */
+    font-size: 1.3rem;
+    white-space: nowrap;
+}
+
+.menu__nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.menu__nav a:hover {
+    color: var(--amarelo);
+}
+
+.menu__carrinho {
+    position: relative;
+    display: flex;
+}
+
+.menu__contador {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background-color: var(--amarelo);
+    color: var(--marrom-escuro);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+}
+
+/* O atributo hidden precisa vencer o display definido acima */
+.menu__contador[hidden] {
+    display: none;
+}
+
+.menu__toggle {
+    display: none;                    /* só aparece no celular */
+    border: 0;
+    background: none;
+    color: var(--amarelo);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 90vh;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%),
+        url("../imagens-geral/rei-dos-hambugueres.png") center right / cover no-repeat;
+}
+
+.hero__conteudo {
+    flex: 1;
+    max-width: 560px;
+    margin-top: 5%;
+    margin-left: 11vw;
+    padding: 32px 0;
+}
+
+.hero__titulo {
+    font-size: clamp(1.8rem, 3vw, 3.2rem);
+}
+
+.hero__produto {
+    font-size: clamp(3.5rem, 7.5vw, 8rem);
+    line-height: 1;
+}
+
+.hero__descricao {
+    font-size: clamp(1.2rem, 1.9vw, 2rem);
+}
+
+.hero__preco {
+    color: var(--amarelo-titulo);
+    font-size: clamp(2.9rem, 4.5vw, 5rem);
+    font-weight: 700;
+}
+
+.hero__titulo,
+.hero__produto,
+.hero__descricao {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.hero .btn {
+    margin-top: 8px;
+    padding: 22px 56px;
+    border-radius: 12px;
+    font-size: clamp(1.1rem, 1.6vw, 1.7rem);
+}
+
+/* Selos: no PC é uma faixa parada; no celular vira letreiro (veja o @media) */
+.hero__selos {
+    background-color: rgba(0, 0, 0, 0.58);
+}
+
+.hero__selos-trilho {
+    display: flex;
+    justify-content: space-around;
+    gap: 12px;
+    font-size: 25px;
+}
+
+/* a cópia dos selos só existe para o loop do celular */
+.hero__selos-trilho li[aria-hidden="true"] {
+    display: none;
+}
+
+/* ---------- Nosso Cardápio ---------- */
+.nosso-cardapio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 32px 24px 40px;
+}
+
+.nosso-cardapio__titulo,
+.localizacao__titulo {
+    color: var(--amarelo);
+    font-size: 2.6rem;
+    text-align: center;
+}
+
+.nosso-cardapio__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 29px;
+    width: 100%;
+    max-width: 1300px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 16px 24px;
+    border-radius: 20px;
+}
+
+.card--bebidas {
+    background-color: var(--card-bebidas);
+}
+
+.card--hamburgueres {
+    background-color: var(--card-hamburgueres);
+}
+
+.card--salgados {
+    background-color: var(--card-salgados);
+}
+
+.card--bolos {
+    background-color: var(--card-bolos);
+}
+
+.card__imagem {
+    width: 110px;
+    height: 110px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.card__titulo {
+    font-size: 1.9rem;
+}
+
+.card__lista {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.card__lista li::before {
+    content: "• ";
+}
+
+/* ---------- Localização ---------- */
+.localizacao {
+    padding: 32px 24px 48px;
+    background-color: var(--vinho-localizacao);
+}
+
+.localizacao__conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 32px;
+    max-width: 1100px;
+    margin: 28px auto 0;
+}
+
+.localizacao__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.localizacao__info h3 {
+    margin-top: 12px;
+    color: var(--amarelo);
+    font-size: 1.5rem;
+}
+
+.localizacao__info .btn {
+    margin-top: 20px;
+}
+
+.localizacao__mapa {
+    width: 100%;
+    height: 360px;
+    border: 0;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 24px;
+    padding: 28px 24px 16px;
+    background-color: var(--marrom-escuro);
+}
+
+.rodape__marca {
+    text-align: center;
+}
+
+.rodape__nome {
+    color: var(--amarelo-titulo);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.rodape__slogan {
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+.rodape__coluna {
+    padding-left: 24px;
+    border-left: 2px solid #ffd98a;
+}
+
+.rodape__coluna h4 {
+    margin-bottom: 8px;
+    color: var(--amarelo-titulo);
+    font-size: 1.3rem;
+}
+
+.rodape__coluna li::before {
+    content: "• ";
+}
+
+.rodape__coluna a:hover {
+    color: var(--amarelo);
+}
+
+.rodape__copy {
+    grid-column: 1 / -1;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* ---------- Animação do letreiro dos selos ---------- */
+/* sai da esquerda e anda para a direita; -50% = uma cópia inteira da lista */
+@keyframes letreiro {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+}
+
+/* ---------- Responsivo (celular) ---------- */
+@media (max-width: 800px) {
+
+    /* ----- Menu ----- */
+    .menu {
+        gap: 16px;
+        padding: 0 16px;
+    }
+
+    .menu__marca {
+        font-size: 1.05rem;
+    }
+
+    .menu__toggle {
+        display: block;
+    }
+
+    .menu__nav {
+        display: none;                /* fechado por padrão */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background-color: rgba(43, 19, 12, 0.97);
+    }
+
+    .menu__nav a {
+        padding: 16px 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .menu__nav--aberto {              /* classe que o JavaScript liga e desliga */
+        display: flex;
+    }
+
+    /* ----- Hero ----- */
+    .hero {
+        min-height: 520px;
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url("../imagens-geral/rei-dos-hambugueres.png");
+        background-position: center, 70% center;
+    }
+
+    .hero__conteudo {
+        max-width: 100%;
+        margin-left: 0;
+        padding: 32px 20px;
+        text-align: center;
+    }
+
+    .hero .btn {
+        padding: 16px 36px;
+    }
+
+    /* ----- Selos: letreiro ----- */
+    .hero__selos {
+        overflow: hidden;             /* esconde o que passa da tela */
+        padding: 10px 0;
+    }
+
+    .hero__selos-trilho {
+        justify-content: flex-start;
+        gap: 0;                       /* sem gap, para o loop emendar sem pulo */
+        width: max-content;           /* a faixa tem a largura do conteúdo, não da tela */
+        animation: letreiro 5s linear infinite;
+    }
+
+    .hero__selos-trilho li {
+        flex: 0 0 auto;
+        min-width: max(33.34vw, 220px);
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .hero__selos-trilho li[aria-hidden="true"] {
+        display: block;               /* mostra a cópia só no celular */
+    }
+
+    .hero__selos-trilho:hover {
+        animation-play-state: paused;
+    }
+
+    /* ----- Seções ----- */
+    .nosso-cardapio__titulo,
+    .localizacao__titulo {
+        font-size: 2rem;
+    }
+
+    .localizacao__conteudo {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .localizacao__mapa {
+        height: 250px;
+    }
+
+    /* ----- Rodapé ----- */
+    .rodape {
+        grid-template-columns: 1fr;
+    }
+
+    .rodape__coluna {
+        padding-left: 0;
+        border-left: 0;
+        text-align: center;
+    }
+}
+
+/* ---------- Quem desativa animações no sistema: selos parados ---------- */
+@media (max-width: 800px) and (prefers-reduced-motion: reduce) {
+    .hero__selos-trilho {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 16px;
+        width: auto;
+        animation: none;
+    }
+
+    .hero__selos-trilho li {
+        min-width: 0;
+    }
+
+    .hero__selos-trilho li[aria-hidden="true"] {
+        display: none;
+    }
+}

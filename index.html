@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Rei dos Hambúrgueres: hambúrgueres, salgados, bebidas e bolos. Monte seu pedido e finalize pelo WhatsApp.">
+    <title>Rei dos Hambúrgueres</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="imagens-geral/icons8-shopping-cart.svg" type="image/svg+xml">
+
+    <script src="javascript/menu.js" defer></script>
+    <script src="javascript/carrinho.js" defer></script>
+</head>
+
+<body>
+    <header class="menu menu--transparente">
+        <a class="menu__marca" href="index.html">🍔 Rei dos Hambúrgueres</a>
+
+        <nav class="menu__nav" id="menu-nav" aria-label="Menu principal">
+            <a href="index.html">Início</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="#localizacao">Contatos</a>
+        </nav>
+
+        <a class="menu__carrinho" href="carrinho.html" aria-label="Ver carrinho">
+            <img src="imagens-geral/icons8-shopping-cart.svg" alt="" width="24" height="24">
+            <span class="menu__contador" id="contador-carrinho" hidden>0</span>
+        </a>
+
+        <button class="menu__toggle" id="botao-menu" type="button" aria-label="Abrir menu" aria-expanded="false"
+            aria-controls="menu-nav">☰</button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero__conteudo">
+                <h1 class="hero__titulo">Mais Vendido:</h1>
+                <h2 class="hero__produto">X-Tudo</h2>
+                <p class="hero__descricao">Pão, Carne, Queijo, Presunto, Milho e Salada</p>
+                <p class="hero__preco">R$18</p>
+                <a class="btn" href="cardapio.html#mais-vendidos">Ver Mais Vendidos</a>
+            </div>
+
+            <div class="hero__selos">
+                <ul class="hero__selos-trilho">
+                    <li>🚚 Entrega rápida</li>
+                    <li>🔥 Feito na hora</li>
+                    <li>💬 Atendimento ágil</li>
+
+                    <!-- cópia, só para o loop do celular (leitores de tela ignoram) -->
+                    <li aria-hidden="true">🚚 Entrega rápida</li>
+                    <li aria-hidden="true">🔥 Feito na hora</li>
+                    <li aria-hidden="true">💬 Atendimento ágil</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="nosso-cardapio">
+            <h2 class="nosso-cardapio__titulo">Nosso Cardápio</h2>
+
+            <div class="nosso-cardapio__cards">
+                <article class="card card--bebidas">
+                    <img class="card__imagem" src="imagens/bebidas/coca-cola-500ml.png" alt="Garrafa de refrigerante"
+                        width="120" height="120" loading="lazy">
+                    <h3 class="card__titulo">Bebidas</h3>
+                    <ul class="card__lista">
+                        <li>Refrigerantes</li>
+                        <li>Águas</li>
+                        <li>Sucos</li>
+                    </ul>
+                    <a class="btn btn--pequeno" href="cardapio.html#bebidas">Ver Bebidas</a>
+                </article>
+
+                <article class="card card--hamburgueres">
+                    <img class="card__imagem" src="imagens/hamburgures/x-tudo.png" alt="Hambúrguer X-Tudo" width="120"
+                        height="120" loading="lazy">
+                    <h3 class="card__titulo">Hambúrgueres</h3>
+                    <ul class="card__lista">
+                        <li>X-Salada</li>
+                        <li>X-Bacon</li>
+                        <li>X-Tudo</li>
+                    </ul>
+                    <a class="btn btn--pequeno" href="cardapio.html#hamburgueres">Ver Hambúrgueres</a>
+                </article>
+
+                <article class="card card--salgados">
+                    <img class="card__imagem" src="imagens/salgados/coxinha.png" alt="Coxinha" width="120" height="120"
+                        loading="lazy">
+                    <h3 class="card__titulo">Salgados</h3>
+                    <ul class="card__lista">
+                        <li>Coxinha</li>
+                        <li>Pastel</li>
+                        <li>Lasanha</li>
+                    </ul>
+                    <a class="btn btn--pequeno" href="cardapio.html#salgados">Ver Salgados</a>
+                </article>
+
+                <article class="card card--bolos">
+                    <img class="card__imagem" src="imagens/bolos/bolo-chocolate.png" alt="Bolo de chocolate" width="120"
+                        height="120" loading="lazy">
+                    <h3 class="card__titulo">Bolos</h3>
+                    <ul class="card__lista">
+                        <li>Bolo de chocolate</li>
+                        <li>Bolo de cenoura</li>
+                        <li>Bolo branco</li>
+                    </ul>
+                    <a class="btn btn--pequeno" href="cardapio.html#bolos">Ver Bolos</a>
+                </article>
+            </div>
+
+            <a class="btn" href="cardapio.html">Ver Cardápio Completo</a>
+        </section>
+
+        <section class="localizacao" id="localizacao">
+            <h2 class="localizacao__titulo">Nossa Localização</h2>
+
+            <div class="localizacao__conteudo">
+                <div class="localizacao__info">
+                    <h3>📍 Endereço</h3>
+                    <p>Av. Souza Filho, nº 12<br>Centro</p>
+
+                    <h3>🕒 Horário</h3>
+                    <p>Terça a Dom, das 19h às 23h</p>
+
+                    <h3>📞 Telefone / WhatsApp</h3>
+                    <p>(87) 99127-1679</p>
+
+                    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Petrolina+PE" target="_blank"
+                        rel="noopener">Como chegar →</a>
+                </div>
+
+                <iframe class="localizacao__mapa" title="Mapa da localização da lanchonete"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62984.75383964539!2d-40.51003234999999!3d-9.37328315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7737a8452b2d649%3A0xa0e71dc0c94e0aed!2sPetrolina%2C%20PE!5e0!3m2!1spt-BR!2sbr!4v1792280495807!5m2!1spt-BR!2sbr"
+                    allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape__marca">
+            <p class="rodape__nome">🍔 Rei dos Hambúrgueres</p>
+            <p class="rodape__slogan">Sabor que vira rei da sua noite</p>
+        </div>
+
+        <nav class="rodape__coluna" aria-label="Navegação do rodapé">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="#localizacao">Contatos</a></li>
+            </ul>
+        </nav>
+
+        <div class="rodape__coluna">
+            <h4>Redes Sociais</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">WhatsApp</a></li>
+            </ul>
+        </div>
+
+        <p class="rodape__copy">© 2026 Rei dos Hambúrgueres. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>

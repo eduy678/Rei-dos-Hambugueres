@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio | Rei dos Hambúrgueres</title>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cardapio.css">
+    <link rel="icon" href="imagens-geral/icons8-shopping-cart.svg" type="image/svg+xml">
+ 
+    <!-- produtos.js precisa vir ANTES do carrinho.js (defer mantém a ordem) -->
+    <script src="javascript/produtos.js" defer></script>
+    <script src="javascript/carrinho.js" defer></script>
+    <script src="javascript/carrossel.js" defer></script>
+    <script src="javascript/menu.js" defer></script>
+</head>
+ 
+<body>
+    <header class="menu">
+        <a class="menu__marca" href="index.html">🍔 Rei dos Hambúrgueres</a>
+ 
+        <nav class="menu__nav" id="menu-nav" aria-label="Menu principal">
+            <a href="index.html">Início</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="index.html#localizacao">Contatos</a>
+        </nav>
+ 
+        <a class="menu__carrinho" href="carrinho.html" aria-label="Ver carrinho">
+            <img src="imagens-geral/icons8-shopping-cart.svg" alt="" width="24" height="24">
+            <span class="menu__contador" id="contador-carrinho" hidden>0</span>
+        </a>
+ 
+        <button class="menu__toggle" id="botao-menu" type="button"
+            aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-nav">☰</button>
+    </header>
+ 
+    <main class="cardapio">
+        <h1 class="cardapio__titulo">Cardápio</h1>
+ 
+        <!-- ========== MAIS VENDIDOS ========== -->
+        <section class="categoria" id="mais-vendidos">
+            <h2 class="categoria__titulo">Mais vendidos</h2>
+            <div class="carrossel">
+                <button class="carrossel__seta carrossel__seta--anterior" type="button" aria-label="Itens anteriores">‹</button>
+                <ul class="carrossel__trilho">
+ 
+                    <li class="produto produto--destaque">
+                        <img class="produto__imagem" src="imagens/hamburgures/x-tudo.png" alt="Hambúrguer X-Tudo" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">X-Tudo</h3>
+                        <p class="produto__preco">R$18</p>
+                        <button class="btn btn--pequeno" type="button" data-id="x-tudo">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--destaque">
+                        <img class="produto__imagem" src="imagens/hamburgures/x-burguer.png" alt="Hambúrguer X-Burguer" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">X-Burguer</h3>
+                        <p class="produto__preco">R$13</p>
+                        <button class="btn btn--pequeno" type="button" data-id="x-burguer">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--destaque">
+                        <img class="produto__imagem" src="imagens/salgados/coxinha.png" alt="Coxinha" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Coxinha</h3>
+                        <p class="produto__preco">R$13</p>
+                        <button class="btn btn--pequeno" type="button" data-id="coxinha">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--destaque">
+                        <img class="produto__imagem" src="imagens/bolos/bolo-branco.png" alt="Bolo branco" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Bolo Branco</h3>
+                        <p class="produto__preco">R$13</p>
+                        <button class="btn btn--pequeno" type="button" data-id="bolo-branco">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--destaque">
+                        <img class="produto__imagem" src="imagens/bebidas/coca-cola-lata.png" alt="Lata de Coca Cola" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Coca Cola 300ml</h3>
+                        <p class="produto__preco">R$4</p>
+                        <button class="btn btn--pequeno" type="button" data-id="coca-cola-lata">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--destaque">
+                        <img class="produto__imagem" src="imagens/bolos/bolo-chocolate.png" alt="Bolo de chocolate" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Bolo de Chocolate</h3>
+                        <p class="produto__preco">R$15</p>
+                        <button class="btn btn--pequeno" type="button" data-id="bolo-chocolate">Adicionar</button>
+                    </li>
+ 
+                </ul>
+                <button class="carrossel__seta carrossel__seta--proximo" type="button" aria-label="Próximos itens">›</button>
+            </div>
+        </section>
+ 
+        <!-- ========== BEBIDAS ========== -->
+        <section class="categoria" id="bebidas">
+            <h2 class="categoria__titulo">Bebidas</h2>
+            <div class="carrossel">
+                <button class="carrossel__seta carrossel__seta--anterior" type="button" aria-label="Itens anteriores">‹</button>
+                <ul class="carrossel__trilho">
+ 
+                    <li class="produto produto--bebidas">
+                        <img class="produto__imagem" src="imagens/bebidas/coca-cola-500ml.png" alt="Garrafa de Coca Cola 500ml" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Coca Cola 500ml</h3>
+                        <p class="produto__preco">R$6</p>
+                        <button class="btn btn--pequeno" type="button" data-id="coca-cola-500ml">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bebidas">
+                        <img class="produto__imagem" src="imagens/bebidas/coca-cola-lata.png" alt="Lata de Coca Cola" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Coca Cola 300ml</h3>
+                        <p class="produto__preco">R$4</p>
+                        <button class="btn btn--pequeno" type="button" data-id="coca-cola-lata">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bebidas">
+                        <img class="produto__imagem" src="imagens/bebidas/fanta-lata.png" alt="Lata de Fanta" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Fanta 300ml</h3>
+                        <p class="produto__preco">R$3</p>
+                        <button class="btn btn--pequeno" type="button" data-id="fanta-lata">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bebidas">
+                        <img class="produto__imagem" src="imagens/bebidas/pepsi-black.png" alt="Lata de Pepsi Black" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Pepsi Black</h3>
+                        <p class="produto__preco">R$5</p>
+                        <button class="btn btn--pequeno" type="button" data-id="pepsi-black">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bebidas">
+                        <img class="produto__imagem" src="imagens/bebidas/agua.png" alt="Garrafa de água" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Água</h3>
+                        <p class="produto__preco">R$2</p>
+                        <button class="btn btn--pequeno" type="button" data-id="agua">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bebidas">
+                        <img class="produto__imagem" src="imagens/bebidas/suco-laranja.png" alt="Suco de laranja" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Suco de Laranja</h3>
+                        <p class="produto__preco">R$10</p>
+                        <button class="btn btn--pequeno" type="button" data-id="suco-laranja">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bebidas">
+                        <img class="produto__imagem" src="imagens/bebidas/suco-maracuja.png" alt="Suco de maracujá" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Suco de Maracujá</h3>
+                        <p class="produto__preco">R$10</p>
+                        <button class="btn btn--pequeno" type="button" data-id="suco-maracuja">Adicionar</button>
+                    </li>
+ 
+                </ul>
+                <button class="carrossel__seta carrossel__seta--proximo" type="button" aria-label="Próximos itens">›</button>
+            </div>
+        </section>
+ 
+        <!-- ========== HAMBÚRGUERES ========== -->
+        <section class="categoria" id="hamburgueres">
+            <h2 class="categoria__titulo">Hambúrgueres</h2>
+            <div class="carrossel">
+                <button class="carrossel__seta carrossel__seta--anterior" type="button" aria-label="Itens anteriores">‹</button>
+                <ul class="carrossel__trilho">
+ 
+                    <li class="produto produto--hamburguer">
+                        <div class="produto__info">
+                            <h3 class="produto__nome">X-Bacon</h3>
+                            <p class="produto__descricao">Pão macio, hambúrguer bovino, queijo mussarela, bacon e molho da casa.</p>
+                            <p class="produto__preco">R$16</p>
+                            <button class="btn btn--pequeno" type="button" data-id="x-bacon">Adicionar</button>
+                        </div>
+                        <img class="produto__imagem" src="imagens/hamburgures/x-bacon.png" alt="Hambúrguer X-Bacon" width="130" height="130" loading="lazy">
+                    </li>
+ 
+                    <li class="produto produto--hamburguer">
+                        <div class="produto__info">
+                            <h3 class="produto__nome">X-Tudo</h3>
+                            <p class="produto__descricao">Pão brioche, hambúrguer artesanal de 150 g, queijo cheddar e molho especial.</p>
+                            <p class="produto__preco">R$18</p>
+                            <button class="btn btn--pequeno" type="button" data-id="x-tudo">Adicionar</button>
+                        </div>
+                        <img class="produto__imagem" src="imagens/hamburgures/x-tudo.png" alt="Hambúrguer X-Tudo" width="130" height="130" loading="lazy">
+                    </li>
+ 
+                    <li class="produto produto--hamburguer">
+                        <div class="produto__info">
+                            <h3 class="produto__nome">X-Burguer</h3>
+                            <p class="produto__descricao">Pão macio, hambúrguer bovino, queijo mussarela e molho da casa.</p>
+                            <p class="produto__preco">R$13</p>
+                            <button class="btn btn--pequeno" type="button" data-id="x-burguer">Adicionar</button>
+                        </div>
+                        <img class="produto__imagem" src="imagens/hamburgures/x-burguer.png" alt="Hambúrguer X-Burguer" width="130" height="130" loading="lazy">
+                    </li>
+ 
+                    <li class="produto produto--hamburguer">
+                        <div class="produto__info">
+                            <h3 class="produto__nome">X-Egg</h3>
+                            <p class="produto__descricao">Hambúrguer bovino, queijo, ovo frito e molho da casa.</p>
+                            <p class="produto__preco">R$13</p>
+                            <button class="btn btn--pequeno" type="button" data-id="x-egg">Adicionar</button>
+                        </div>
+                        <img class="produto__imagem" src="imagens/hamburgures/x-egg.png" alt="Hambúrguer X-Egg" width="130" height="130" loading="lazy">
+                    </li>
+ 
+                    <li class="produto produto--hamburguer">
+                        <div class="produto__info">
+                            <h3 class="produto__nome">X-Salada</h3>
+                            <p class="produto__descricao">Hambúrguer bovino, queijo, presunto, alface, tomate e maionese.</p>
+                            <p class="produto__preco">R$13</p>
+                            <button class="btn btn--pequeno" type="button" data-id="x-salada">Adicionar</button>
+                        </div>
+                        <img class="produto__imagem" src="imagens/hamburgures/x-salada.png" alt="Hambúrguer X-Salada" width="130" height="130" loading="lazy">
+                    </li>
+ 
+                </ul>
+                <button class="carrossel__seta carrossel__seta--proximo" type="button" aria-label="Próximos itens">›</button>
+            </div>
+        </section>
+ 
+        <!-- ========== SALGADOS ========== -->
+        <section class="categoria" id="salgados">
+            <h2 class="categoria__titulo">Salgados</h2>
+            <div class="carrossel">
+                <button class="carrossel__seta carrossel__seta--anterior" type="button" aria-label="Itens anteriores">‹</button>
+                <ul class="carrossel__trilho">
+ 
+                    <li class="produto produto--salgados">
+                        <img class="produto__imagem" src="imagens/salgados/coxinha.png" alt="Coxinha" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Coxinha</h3>
+                        <p class="produto__preco">R$13</p>
+                        <button class="btn btn--pequeno" type="button" data-id="coxinha">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--salgados">
+                        <img class="produto__imagem" src="imagens/salgados/lasanha.png" alt="Lasanha" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Lasanha</h3>
+                        <p class="produto__preco">R$12</p>
+                        <button class="btn btn--pequeno" type="button" data-id="lasanha">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--salgados">
+                        <img class="produto__imagem" src="imagens/salgados/sanduiche.png" alt="Sanduíche" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Sanduíche</h3>
+                        <p class="produto__preco">R$10</p>
+                        <button class="btn btn--pequeno" type="button" data-id="sanduiche">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--salgados">
+                        <img class="produto__imagem" src="imagens/salgados/torata-frango.png" alt="Torta de frango" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Torta de Frango</h3>
+                        <p class="produto__preco">R$15</p>
+                        <button class="btn btn--pequeno" type="button" data-id="torata">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--salgados">
+                        <img class="produto__imagem" src="imagens/salgados/pastel-frango-catupiry.png" alt="Pastel de frango com Catupiry" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Pastel de Frango com Catupiry</h3>
+                        <p class="produto__preco">R$12</p>
+                        <button class="btn btn--pequeno" type="button" data-id="pastel-frango-catupiry">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--salgados">
+                        <img class="produto__imagem" src="imagens/salgados/pastel-queijo.png" alt="Pastel de queijo" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Pastel de Queijo</h3>
+                        <p class="produto__preco">R$12</p>
+                        <button class="btn btn--pequeno" type="button" data-id="pastel-queijo">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--salgados">
+                        <img class="produto__imagem" src="imagens/salgados/risole.png" alt="Risole" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Risole</h3>
+                        <p class="produto__preco">R$8</p>
+                        <button class="btn btn--pequeno" type="button" data-id="risole">Adicionar</button>
+                    </li>
+ 
+                </ul>
+                <button class="carrossel__seta carrossel__seta--proximo" type="button" aria-label="Próximos itens">›</button>
+            </div>
+        </section>
+ 
+        <!-- ========== BOLOS ========== -->
+        <section class="categoria" id="bolos">
+            <h2 class="categoria__titulo">Bolos</h2>
+            <div class="carrossel">
+                <button class="carrossel__seta carrossel__seta--anterior" type="button" aria-label="Itens anteriores">‹</button>
+                <ul class="carrossel__trilho">
+ 
+                    <li class="produto produto--bolos">
+                        <img class="produto__imagem" src="imagens/bolos/bolo-branco.png" alt="Bolo branco" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Bolo Branco</h3>
+                        <p class="produto__preco">R$13</p>
+                        <button class="btn btn--pequeno" type="button" data-id="bolo-branco">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bolos">
+                        <img class="produto__imagem" src="imagens/bolos/bolo-bundt.png" alt="Bolo bundt" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Bolo Bundt</h3>
+                        <p class="produto__preco">R$10</p>
+                        <button class="btn btn--pequeno" type="button" data-id="bolo-bundt">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bolos">
+                        <img class="produto__imagem" src="imagens/bolos/bolo-cenoura.png" alt="Bolo de cenoura" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Bolo de Cenoura</h3>
+                        <p class="produto__preco">R$14</p>
+                        <button class="btn btn--pequeno" type="button" data-id="bolo-cenoura">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bolos">
+                        <img class="produto__imagem" src="imagens/bolos/bolo-chocolate.png" alt="Bolo de chocolate" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Bolo de Chocolate</h3>
+                        <p class="produto__preco">R$15</p>
+                        <button class="btn btn--pequeno" type="button" data-id="bolo-chocolate">Adicionar</button>
+                    </li>
+ 
+                    <li class="produto produto--bolos">
+                        <img class="produto__imagem" src="imagens/bolos/bolo-dourado.png" alt="Bolo dourado" width="180" height="180" loading="lazy">
+                        <h3 class="produto__nome">Bolo Dourado</h3>
+                        <p class="produto__preco">R$15</p>
+                        <button class="btn btn--pequeno" type="button" data-id="bolo-dourado">Adicionar</button>
+                    </li>
+ 
+                </ul>
+                <button class="carrossel__seta carrossel__seta--proximo" type="button" aria-label="Próximos itens">›</button>
+            </div>
+        </section>
+    </main>
+ 
+    <footer class="rodape">
+        <div class="rodape__marca">
+            <p class="rodape__nome">🍔 Rei dos Hambúrgueres</p>
+            <p class="rodape__slogan">Sabor que vira rei da sua noite</p>
+        </div>
+ 
+        <nav class="rodape__coluna" aria-label="Navegação do rodapé">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="index.html#localizacao">Contatos</a></li>
+            </ul>
+        </nav>
+ 
+        <div class="rodape__coluna">
+            <h4>Redes Sociais</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">WhatsApp</a></li>
+            </ul>
+        </div>
+ 
+        <p class="rodape__copy">© 2026 Rei dos Hambúrgueres. Todos os direitos reservados.</p>
+    </footer>
+</body>
+ 
+</html>
